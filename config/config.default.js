@@ -29,7 +29,7 @@ module.exports = appInfo => {
     },
     sequelize: {
       dialect: 'postgres',
-      host: 'localhost',
+      host: '127.0.0.1',
       database: 'mi_local_test',
       port: 5432,
       username: 'postgres',
