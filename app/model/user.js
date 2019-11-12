@@ -10,6 +10,7 @@ const randomBytesP = promisify(randomBytes);
 
 async function genEncryptedPassword(rawPassword, salt) {
   if (!salt) salt = await randomBytesP(32);
+
   const encrypted = await pbkdf2P(
     rawPassword,
     salt.toString('base64'),
@@ -17,6 +18,7 @@ async function genEncryptedPassword(rawPassword, salt) {
     128,
     'sha512'
   );
+
   return {
     encrypted: encrypted.toString('base64'),
     salt: salt.toString('base64'),
@@ -90,10 +92,10 @@ module.exports = app => {
     });
 
     if (!found) {
-      throw new app.error.InvalidParam(
+      throw new app.error.InvalidParams(
         'username',
         'no such username',
-        '账户不存在'
+        '用户不存在'
       );
     }
 
@@ -105,7 +107,7 @@ module.exports = app => {
     );
 
     if (foundPassword !== reEncryptedPassword) {
-      throw new app.error.InvalidParam(
+      throw new app.error.InvalidParams(
         'username or password',
         'username or password do not match',
         '用户名或密码不正确'

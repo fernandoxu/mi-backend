@@ -29,7 +29,7 @@ module.exports = appInfo => {
     },
     sequelize: {
       dialect: 'postgres',
-      host: '127.0.0.1',
+      host: 'localhost',
       database: 'mi_local_test',
       port: 5432,
       username: 'postgres',
@@ -37,6 +37,14 @@ module.exports = appInfo => {
       pool: {
         max: 10,
         min: 1,
+      },
+    },
+    redis: {
+      client: {
+        host: 'localhost',
+        port: '6379',
+        db: 0,
+        password: '',
       },
     },
     onerror: {

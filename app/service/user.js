@@ -8,7 +8,6 @@ class User extends Service {
       username,
       password
     );
-    console.log(created, '---created---');
 
     return created;
   }

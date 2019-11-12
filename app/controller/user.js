@@ -52,7 +52,7 @@ class UserController extends Controller {
     this.ctx.body = {
       code: 0,
       data: {
-        attempt: this.ctx.session.attempts,
+        // attempt: this.ctx.session.attempts,
         user: {
           id: foundUser.id,
         },
@@ -70,7 +70,7 @@ class UserController extends Controller {
   }
 
   async logout() {
-    if (this.ctx.session.user) this.ctx.session.user = undefined;
+    if (this.ctx.session.user) this.ctx.session.user = null;
     this.ctx.body = {
       code: 0,
     };
