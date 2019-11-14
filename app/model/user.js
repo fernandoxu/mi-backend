@@ -62,7 +62,7 @@ module.exports = app => {
     }
   );
 
-  Model.createUserWithUnPw = async (username, password) => {
+  Model.createUser = async (username, password) => {
     const { salt, encrypted } = await genEncryptedPassword(password);
     let created = await Model.create(
       {
@@ -81,7 +81,7 @@ module.exports = app => {
     return created;
   };
 
-  Model.loginWithUnPw = async (username, password) => {
+  Model.login = async (username, password) => {
     const [ found ] = await Model.findAll({
       attributes: [ 'id', 'password', 'salt' ],
       where: {

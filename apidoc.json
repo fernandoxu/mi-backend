@@ -1,0 +1,9 @@
+{
+  "name": "mi-backend",
+  "version": "1.0.0",
+  "description": "mi-backend",
+  "apidoc": {
+    "title": "mi-backend",
+    "url" : "https://localhost:7001"
+  }
+}

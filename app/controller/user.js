@@ -6,7 +6,7 @@ class UserController extends Controller {
   async createUser() {
     const { username, password } = this.ctx.request.body;
 
-    const createdUser = await this.ctx.service.user.createUserWithUnPw(
+    const createdUser = await this.ctx.service.user.createUser(
       username,
       password
     );
@@ -39,10 +39,10 @@ class UserController extends Controller {
     };
   }
 
-  async loginWithUnPw() {
+  async login() {
     const { username, password } = this.ctx.request.body;
 
-    const foundUser = await this.ctx.service.user.loginWithUnPw(
+    const foundUser = await this.ctx.service.user.login(
       username,
       password
     );
